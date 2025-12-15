@@ -1,5 +1,6 @@
 package com.example.app_actividades_idnp_e3.service
 
+import android.util.Log
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
@@ -39,27 +40,40 @@ class ActivityForegroundService : Service() {
 
             // Ciclo de monitoreo simulado
             while (true) {
+                Log.d("ga", "si")
                 // Obtenemos la lista actual de la BD (solo una vez, sin observar cambios constantes)
                 val activities = repository.allPendingActivities.first()
                 val currentTime = System.currentTimeMillis()
 
+
                 activities.forEach { activity ->
                     // Lógica simple: Si falta menos de 1 día y tiene recordatorio activado
                     // OJO: Esta es una lógica simple de ejemplo.
+                    val mins = 1000 * 60 * activity.reminderDaysBefore
                     val timeDiff = activity.dueDate - currentTime
                     // Por ejemplo, si falta menos de 24h y no se ha notificado antes (lógica a refinar)
-                    if (timeDiff > 0 && timeDiff < 86400000 && activity.reminderDaysBefore > 0) {
+                    Log.d("ga", "chequeando")
+                    Log.d("ga", "dias = ${activity.reminderDaysBefore}")
+                    Log.d("ga", "due = ${activity.dueDate}")
+                    Log.d("ga", "cur = $currentTime")
+                    Log.d("ga", "timeDiff = $timeDiff")
+                    if (timeDiff < mins && activity.hasReminders) {
+                        Log.d("ga", "le toca")
                         notificationHelper.showActivityNotification(
                             activity.title,
                             "Vence pronto: ${activity.description}",
                             activity.id
                         )
+
+                        val completedActivity = activity.copy(hasReminders = false)
+                        repository.update(completedActivity)
+                        Log.d("ga", "Actividad ${activity.id} marcada como completada")
                     }
                 }
 
                 // Esperar 1 hora antes de volver a chequear (o el tiempo que desees)
                 // Para pruebas, puedes poner delay(10000) -> 10 segundos
-                delay(60000 * 60)
+                delay(1000)
             }
         }
     }

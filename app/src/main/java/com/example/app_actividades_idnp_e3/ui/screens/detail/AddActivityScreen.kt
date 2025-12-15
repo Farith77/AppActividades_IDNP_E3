@@ -200,7 +200,8 @@ fun AddActivityScreen(
                                 description = description,
                                 date = selectedDateMilli,
                                 category = selectedCategory,
-                                reminderDays = days
+                                reminderDays = days,
+                                hasReminders = reminderEnabled
                             )
                         } else {
                             // MODO EDITAR (NUEVO)
@@ -211,7 +212,8 @@ fun AddActivityScreen(
                                 description = description,
                                 dueDate = selectedDateMilli,
                                 category = selectedCategory,
-                                reminderDaysBefore = days
+                                reminderDaysBefore = days,
+                                hasReminders = reminderEnabled
                             )
                             viewModel.updateActivity(updatedActivity)
                         }

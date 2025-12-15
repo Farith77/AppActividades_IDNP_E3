@@ -1,5 +1,6 @@
 package com.example.app_actividades_idnp_e3.ui.viewmodel
 
+import android.R
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -56,14 +57,15 @@ class ActivitiesViewModel(private val repository: ActivitiesRepository) : ViewMo
     }
 
     // --- Funciones CRUD (Igual que antes) ---
-    fun addActivity(title: String, description: String, date: Long, category: String, reminderDays: Int) {
+    fun addActivity(title: String, description: String, date: Long, category: String, reminderDays: Int, hasReminders: Boolean) {
         viewModelScope.launch {
             val newActivity = ActivityEntity(
                 title = title,
                 description = description,
                 dueDate = date,
                 category = category,
-                reminderDaysBefore = reminderDays
+                reminderDaysBefore = reminderDays,
+                hasReminders = hasReminders
             )
             repository.insert(newActivity)
         }
