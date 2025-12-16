@@ -9,15 +9,6 @@ Un aplicativo móvil nativo desarrollado en **Android (Kotlin)** para la gestió
 
 ---
 
-## 📱 Capturas de Pantalla
-
-| Pantalla de Inicio | Agregar / Editar | Eliminación |
-|:---:|:---:|:---:|
-| ![Home](screenshots/home.png) | ![Add](screenshots/add.png) | ![Delete](screenshots/delete.png) |
-> *Nota: Coloca tus capturas en una carpeta `screenshots` en la raíz del proyecto.*
-
----
-
 ## 🚀 Características Principales
 
 * **Gestión de Tareas (CRUD):** Crear, Leer, Editar y Eliminar actividades.
