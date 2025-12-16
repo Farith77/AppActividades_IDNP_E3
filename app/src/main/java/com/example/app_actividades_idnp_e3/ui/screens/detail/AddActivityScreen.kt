@@ -177,7 +177,7 @@ fun AddActivityScreen(
                 OutlinedTextField(
                     value = reminderDays,
                     onValueChange = { if (it.all { char -> char.isDigit() }) reminderDays = it },
-                    label = { Text("Días de anticipación") },
+                    label = { Text("Minutos de anticipación") },
                     keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = androidx.compose.ui.text.input.KeyboardType.Number),
                     modifier = Modifier.fillMaxWidth()
                 )

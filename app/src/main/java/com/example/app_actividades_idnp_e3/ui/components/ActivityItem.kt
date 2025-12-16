@@ -134,7 +134,7 @@ fun ActivityItem(
 
                 Spacer(modifier = Modifier.width(16.dp))
 
-                // Recordatorio (Solo si tiene días configurados)
+                // Recordatorio
                 if (activity.reminderDaysBefore > 0) {
                     Icon(
                         imageVector = Icons.Outlined.Notifications,
@@ -144,7 +144,7 @@ fun ActivityItem(
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = "${activity.reminderDaysBefore}d antes",
+                        text = "${activity.reminderDaysBefore}min antes",
                         style = MaterialTheme.typography.bodySmall,
                         color = Color(0xFFD97706),
                         fontWeight = FontWeight.Medium
