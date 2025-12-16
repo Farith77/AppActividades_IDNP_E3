@@ -1,6 +1,6 @@
 # 📅 App Actividades IDNP E3
 
-![Kotlin](https://img.shields.io/badge/Kotlin-1.9.0-purple?logo=kotlin)
+![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-purple?logo=kotlin)
 ![Android](https://img.shields.io/badge/Platform-Android-green?logo=android)
 ![Compose](https://img.shields.io/badge/UI-Jetpack%20Compose-blue?logo=jetpackcompose)
 ![Architecture](https://img.shields.io/badge/Architecture-MVVM-orange)
